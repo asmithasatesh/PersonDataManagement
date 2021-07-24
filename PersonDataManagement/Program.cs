@@ -7,8 +7,12 @@ namespace PersonDataManagement
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Person Data Management!");
-            PersonDetailManagement.AddPerson();
-            Console.Read();
+            //Add person Details
+            PersonDetailManagement personDetailManagement = new PersonDetailManagement();
+            personDetailManagement.AddPerson();
+            //Retrieve top two records which age is less than 60
+            personDetailManagement.PersonAgeLessThan60();
+
         }
     }
 }
