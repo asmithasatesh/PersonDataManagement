@@ -28,7 +28,7 @@ namespace PersonDataManagement
         {
             foreach (Person person in peopleList)
             {
-                Console.WriteLine("SSN: {0} Name: {1} Address: {2} Age: {3}  ", person.SSN, person.name, person.address, person.age);
+                Console.WriteLine("SSN: {0}\tName: {1}\tAddress:{2}\tAge: {3}  ", person.SSN, person.name, person.address, person.age);
             }
         }
 
@@ -37,6 +37,14 @@ namespace PersonDataManagement
         {
             Console.WriteLine("\n********* Retriving the top 2 person from list whose age is less than 60 *********\n");
             List<Person> list = PeopleList.FindAll(person => person.age < 60).OrderBy(x => x.age).Take(2).ToList();
+            DisplayDetails(list);
+        }
+
+        //Retriving the record where age is between 13-18
+        public void PersonAgeBetween13And18()
+        {
+            Console.WriteLine("\n********* Retriving the record where age is between 13-18 *********\n");
+            List<Person> list = PeopleList.FindAll(person => person.age < 18 && person.age>13);
             DisplayDetails(list);
         }
     }
