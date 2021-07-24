@@ -80,7 +80,6 @@ namespace PersonDataManagement
                     return "Found";
                 }
 
-    
                 throw new ArgumentNullException("");
 
             }
@@ -88,6 +87,30 @@ namespace PersonDataManagement
             {
                 Console.WriteLine(ex.Message);
                 return ex.Message;
+            }
+        }
+        public List<string> SkipRecordLessThan60()
+        {
+            try
+            {
+                var list = PeopleList.FindAll(person => person.age > 60);
+                if (list != null)
+                {
+                    Console.WriteLine("\n-----Record which age is greater than 60-----");
+                    List<string> recordList=DisplayDetails(list);
+                    return recordList;
+                }
+                else
+                {
+                    Console.WriteLine("No data available ");
+                    throw new ArgumentNullException("");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return default;
             }
         }
     }

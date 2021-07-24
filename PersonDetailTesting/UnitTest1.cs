@@ -22,7 +22,7 @@ namespace PersonDetailTesting
         [TestCategory("Retrieve Top two Records")]
         public void GivenRecord_ReturnTop2_AgeLessThan60()
         {
-            List<string> expected = new List<string> { "Harsha","Indu"};
+            List<string> expected = new List<string> { "Harsha", "Indu" };
             List<string> actual = personDetailManagement.PersonAgeLessThan60();
             CollectionAssert.AreEqual(expected, actual);
         }
@@ -48,10 +48,10 @@ namespace PersonDetailTesting
         //Usecase 5
         [TestMethod]
         [TestCategory("Search a Name")]
-        [DataRow("Arpita","Found")]
-        [DataRow("Ash","Not Found")]
+        [DataRow("Arpita", "Found")]
+        [DataRow("Ash", "Not Found")]
         [DataRow(null, "Object reference not set to an instance of an object.")]
-        public void SearchaValue(string searchValue,string expected)
+        public void SearchaValue(string searchValue, string expected)
         {
             personDetailManagement.AddPerson();
             try
@@ -59,10 +59,30 @@ namespace PersonDetailTesting
                 string actual = personDetailManagement.SearchingSpecificName(searchValue);
                 Assert.AreEqual(actual, expected);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 Assert.AreEqual(ex.Message, expected);
+            }
+
+        }
+
+        //Usecase 6
+        [TestMethod]
+        [TestCategory("Retrieve Record wheere age greater than 60")]
+
+        public void GivenRecord_ReturnName_WhereAgeGreaterThan60()
+        {
+            try
+            {
+                List<string> expected = new List<string>() { "Arpita", "Megha" };
+                List<string> actual = personDetailManagement.SkipRecordLessThan60();
+                CollectionAssert.AreEqual(expected, actual);
+            }
+            catch (Exception ex)
+            {
+                string expect = "No Record";
+                Assert.AreEqual(ex.Message, expect);
             }
 
         }

@@ -20,6 +20,8 @@ namespace PersonDataManagement
             Console.WriteLine("Enter name to be searched");
             string personName = Console.ReadLine();
             personDetailManagement.SearchingSpecificName(personName);
+            //Skip record less than 60
+            personDetailManagement.SkipRecordLessThan60();
         }
     }
 }
