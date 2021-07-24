@@ -14,6 +14,8 @@ namespace PersonDataManagement
             personDetailManagement.PersonAgeLessThan60();
             //Retriving the record where age is between 13-18
             personDetailManagement.PersonAgeBetween13And18();
+            //Print Average Age 
+            personDetailManagement.AverageAgeRecord();
         }
     }
 }

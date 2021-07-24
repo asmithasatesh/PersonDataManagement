@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PersonDataManagement
 {
-    class Person
+    public class Person
     {
         //Instance Variables
         public int SSN;
