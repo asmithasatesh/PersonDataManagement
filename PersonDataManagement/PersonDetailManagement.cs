@@ -113,5 +113,29 @@ namespace PersonDataManagement
                 return default;
             }
         }
+        public int RemoveSpecificName(string Name)
+        {
+            try
+            {
+                int list = PeopleList.RemoveAll(x => x.name.Contains(Name));
+                if (list != 0)
+                {
+                    Console.WriteLine("\nRemoved Person is: {0}", list);
+                    Console.WriteLine("\n*****After Removal Record Display******\n");
+                    DisplayDetails(PeopleList);
+                    return list;
+                }
+                else
+                {
+                    return 0;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+            }
+        }
     }
 }

@@ -86,5 +86,25 @@ namespace PersonDetailTesting
             }
 
         }
+        //Usecase 7
+        [TestMethod]
+        [TestCategory("Remove an element from list")]
+
+        public void GivenaString_RemoveitfromList_Return1()
+        {
+            try
+            {
+                int expected = 1;
+
+                int actual = personDetailManagement.RemoveSpecificName("Indu");
+                Assert.AreEqual(expected, actual);
+            }
+            catch (Exception ex)
+            {
+                int expect = 0;
+                Assert.AreEqual(ex.Message, expect);
+            }
+
+        }
     }
 }
