@@ -55,11 +55,40 @@ namespace PersonDataManagement
             return recordList;
         }
 
+        //Compute Average of Age
         public double AverageAgeRecord()
         {
             double avgAge = PeopleList.Average(person => person.age);
             Console.WriteLine("Average age value is : {0} ", Math.Round(avgAge,3));
             return Math.Round(avgAge, 3);
+        }
+
+        //Search a specific name
+        public string SearchingSpecificName(string personName)
+        {
+            try
+            {
+                var person = PeopleList.Find(person => person.name.Equals(personName));
+                if (personName != null && person == null)
+                {
+                    Console.WriteLine("Person does not Exist!");
+                    return "Not Found";
+                }
+                if (person.name== personName)
+                {
+                    Console.WriteLine("Found Person\nSSN : {0} Name : {1} Address : {2} Age : {3}  ", person.SSN, person.name, person.address, person.age);
+                    return "Found";
+                }
+
+    
+                throw new ArgumentNullException("");
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return ex.Message;
+            }
         }
     }
 }

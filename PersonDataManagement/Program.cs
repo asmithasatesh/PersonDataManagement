@@ -16,6 +16,10 @@ namespace PersonDataManagement
             personDetailManagement.PersonAgeBetween13And18();
             //Print Average Age 
             personDetailManagement.AverageAgeRecord();
+            //Search a name
+            Console.WriteLine("Enter name to be searched");
+            string personName = Console.ReadLine();
+            personDetailManagement.SearchingSpecificName(personName);
         }
     }
 }
